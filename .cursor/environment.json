@@ -1,0 +1,23 @@
+{
+  "name": "Graph-RAG Platform",
+  "user": "ubuntu",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "install": "./scripts/cloud-agent-install.sh",
+  "start": "./scripts/cloud-agent-start.sh",
+  "ports": [
+    {
+      "name": "api",
+      "port": 8000
+    }
+  ],
+  "terminals": [
+    {
+      "name": "api",
+      "command": "source .venv/bin/activate && uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --reload",
+      "description": "FastAPI Graph-RAG backend with auto-reload"
+    }
+  ]
+}
