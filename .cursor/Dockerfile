@@ -11,7 +11,6 @@ RUN apt-get update \
         build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-RUN useradd -m -s /bin/bash ubuntu
-
+# ubuntu:24.04 already ships the ubuntu user.
 USER ubuntu
 WORKDIR /home/ubuntu
